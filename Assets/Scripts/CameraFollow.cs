@@ -11,19 +11,34 @@ public class CameraFollow : MonoBehaviour
 
     [SerializeField] private Transform target;
 
-
-    // Update is called once per frame
     void Update()
     {
+        PlayerController controller;
         Vector3 targetPosition = Vector3.zero;
-        if (target.GetComponent<PlayerController>().IsGrounded())
+        if (target.TryGetComponent<PlayerController>(out controller))
         {
-            targetPosition = target.position + offset;
+            if (controller.IsGrounded())
+            {
+                targetPosition = target.position + offset;
+            }
+            else
+            {
+                targetPosition = new Vector3(target.position.x, transform.position.y, 0) + offset;
+            }
+            if (target.localScale.x < 0f)
+            {
+                offset.x = -4;
+            }
+            else
+            {
+                offset.x = 4;
+            }
         }
         else
         {
-            targetPosition = new Vector3(target.position.x, transform.position.y, 0) + offset;
+            targetPosition = new Vector3(target.position.x, target.position.y, 0) + offset; new Vector3(0, 0, -10f);
         }
+        
 
         transform.position = Vector3.SmoothDamp(transform.position, targetPosition, ref velocity, smoothTime);
     }
