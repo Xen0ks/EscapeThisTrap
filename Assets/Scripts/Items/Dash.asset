@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53ef91f790fb514fbd4672d74a73024, type: 3}
+  m_Name: Dash
+  m_EditorClassIdentifier: 
+  name: Dash
+  description: With this item you can dash in the direction of your mouse cursor
+    if you press right click. You can do it twice without touching the ground.
+  sprite: {fileID: 21300000, guid: 1d1a9e3588c434c4099275c668b2ba9e, type: 3}

@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
         Vector3 targetPosition = Vector3.zero;
         if (target.TryGetComponent<PlayerController>(out controller))
         {
-            if (controller.IsGrounded())
+            if (controller.IsGrounded() || controller.GetComponent<Player>().dash)
             {
                 targetPosition = target.position + offset;
             }

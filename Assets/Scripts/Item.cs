@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class Item : MonoBehaviour
 {
     public ItemData item;
+    public UnityEvent onItemObtained;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -17,14 +18,9 @@ public class Item : MonoBehaviour
 
     void TakeItem()
     {
-        item.onItemObtained.Invoke();
+        NotificationSystem.instance.ObtainItem(item.name, item.description, item.sprite);
+        Inventory.instance.AddItem(item);
+        onItemObtained.Invoke();
         Destroy(gameObject);
     }
-}
-[System.Serializable]
-public class ItemData
-{
-    public string name;
-    public string description;
-    public UnityEvent onItemObtained;
 }

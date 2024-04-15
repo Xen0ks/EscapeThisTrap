@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     int dashCount = 0;
     public int maxDash = 2;
 
+    // Bomb
+    public Transform bombPrefab;
+    public bool hasBomb = false;
+    bool ableBomb = true;
+
     private void Start()
     {
         controller = GetComponent<PlayerController>();
@@ -34,6 +39,21 @@ public class Player : MonoBehaviour
             EndDash();
         }
 
+        if (Input.GetKeyDown(KeyCode.Mouse0) && CanBomb())
+        {
+            ableBomb = false;
+            Transform bomb = Instantiate(bombPrefab);
+            bomb.position = transform.position;
+            Vector3 bombScreenPosition = Camera.main.WorldToScreenPoint(bomb.position);
+            Vector3 mouseScreenPosition = Input.mousePosition;
+
+            Vector3 bombToMouseVector = (mouseScreenPosition - bombScreenPosition).normalized;
+
+            bomb.GetComponent<Rigidbody2D>().velocity = bombToMouseVector * dashPower;
+
+            Invoke("AbleBomb", 5f);
+        }
+
         if (controller.IsGrounded() && !dash)
         {
             dashCount = 0;
@@ -42,15 +62,24 @@ public class Player : MonoBehaviour
 
     public void Die()
     {
+        if (isDead)
+        {
+            return;
+        }
+        anim.SetBool("Dead", true);
+        anim.SetTrigger("Die");
         isDead = true;
+        controller.enabled = false;
         Transition.instance.PerformTransition();
-        Invoke("Respawn", 0.7f);
+        Invoke("Respawn", 0.67f);
     }
 
     public void Respawn()
     {
+        transform.position = GameObject.FindGameObjectWithTag("Level").GetComponent<Level>().respawnPoint.position;
+        controller.enabled = true;
+        anim.SetBool("Dead", false);
         isDead = false;
-        transform.position = GameObject.FindGameObjectWithTag("Level").GetComponent<Level>().respawnPoint.position; ;
     }
 
     void Dash()
@@ -58,7 +87,6 @@ public class Player : MonoBehaviour
 
         dashCount++;
         dash = true;
-        GetComponent<Animator>().SetTrigger("Dash");
         anim.SetBool("Walk", false);
         anim.SetBool("Dash", true);
 
@@ -85,9 +113,19 @@ public class Player : MonoBehaviour
         }
     }
 
+    void AbleBomb()
+    {
+        ableBomb = true;
+    }
+
     public bool CanDash()
     {
-        return dashCount < maxDash && !GetComponent<Player>().isDead && hasDash;
+        return dashCount < maxDash && hasDash && !isDead;
+    }
+
+    public bool CanBomb()
+    {
+        return !GetComponent<Player>().isDead && hasBomb && !isDead && ableBomb;
     }
 
     public void EndDash()
@@ -109,5 +147,10 @@ public class Player : MonoBehaviour
             return;
         }
         maxDash = upgrade;
+    }
+
+    public void UnlockBombs()
+    {
+        hasBomb = true;
     }
 }

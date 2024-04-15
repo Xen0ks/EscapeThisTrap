@@ -31,6 +31,10 @@ public class PlayerController : MonoBehaviour
         {
             if(IsGrounded()) anim.SetBool("Walk", true);
         }
+        if(horizontal == 0)
+        {
+            anim.SetBool("Walk", false);
+        }
         if(!IsGrounded())
         {
             anim.SetBool("Walk", false);
@@ -54,12 +58,17 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!player.dash) rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
+        if(CanMove()) rb.velocity = new Vector2(horizontal * speed, rb.velocity.y);
     }
 
     public bool IsGrounded()
     {
         return Physics2D.OverlapCircle(groundCheck.position, 0.08f, groundLayer);
+    }
+
+    public bool CanMove()
+    {
+        return !player.dash && !player.isDead;
     }
 
 

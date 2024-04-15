@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c53ef91f790fb514fbd4672d74a73024, type: 3}
+  m_Name: Dash+
+  m_EditorClassIdentifier: 
+  name: Dash+
+  description: Now you can dash 3 times, it is very useful if you want to go for
+    long jumps
+  sprite: {fileID: 21300000, guid: 1d6c1ae7d3d9ebb4983056f882183acd, type: 3}
