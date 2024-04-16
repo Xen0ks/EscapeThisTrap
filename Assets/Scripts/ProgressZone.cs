@@ -10,7 +10,6 @@ public class ProgressZone : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             spawnPoint.position = transform.GetChild(0).position;
-            Destroy(gameObject);
         }
     }
 }

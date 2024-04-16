@@ -10,6 +10,13 @@ public class NotificationSystem : MonoBehaviour
 
     PlayerController controller;
 
+    [SerializeField]
+    Animator smallNotifPanel;
+    [SerializeField]
+    Image smallNotifImage;
+    [SerializeField]
+    Text smallNotifText;
+
     private void Awake()
     {
         instance = this;
@@ -32,4 +39,12 @@ public class NotificationSystem : MonoBehaviour
         controller.enabled = true;
         itemPanel.SetBool("Show", false);
     }
+
+    public void SmallNotif(Sprite sprite, string message)
+    {
+        smallNotifImage.sprite = sprite;
+        smallNotifText.text = message;
+        smallNotifPanel.SetTrigger("Show");
+    }
+
 }

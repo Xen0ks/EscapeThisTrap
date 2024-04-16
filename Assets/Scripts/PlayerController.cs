@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     // Réferences
     Animator anim;
     Player player;
-    Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
     [SerializeField] private Transform groundCheck;
 
     private void Start()

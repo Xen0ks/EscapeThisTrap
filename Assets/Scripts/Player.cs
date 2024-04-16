@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -8,6 +10,7 @@ public class Player : MonoBehaviour
     PlayerController controller;
     Animator anim;
     Rigidbody2D rb;
+    CameraFollow cam;
 
     // Dash
     public float dashPower = 14f;
@@ -21,11 +24,20 @@ public class Player : MonoBehaviour
     public bool hasBomb = false;
     bool ableBomb = true;
 
+    // Money
+    int nuggetAmount;
+    [SerializeField]
+    Text nuggetText;
+    [SerializeField]
+    Sprite nuggetIcon;
+
+
     private void Start()
     {
         controller = GetComponent<PlayerController>();
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        cam = Camera.main.GetComponent<CameraFollow>();
     }
 
     public void Update()
@@ -74,12 +86,27 @@ public class Player : MonoBehaviour
         Invoke("Respawn", 0.67f);
     }
 
+    public IEnumerator Teleport(Vector2 location)
+    {
+        Transition.instance.PerformTransition();
+        controller.enabled = false;
+        yield return new WaitForSeconds(0.67f);
+        cam.transform.position = location;
+        controller.enabled = true;
+        transform.position = location;
+        rb.velocity = Vector3.zero;
+    }
+
+
     public void Respawn()
     {
-        transform.position = GameObject.FindGameObjectWithTag("Level").GetComponent<Level>().respawnPoint.position;
+        Vector2 respawnPoint = GameObject.FindGameObjectWithTag("Level").GetComponent<Level>().respawnPoint.position;
+        transform.position = respawnPoint;
         controller.enabled = true;
         anim.SetBool("Dead", false);
         isDead = false;
+        cam.transform.position = respawnPoint;
+        rb.velocity = Vector3.zero;
     }
 
     void Dash()
@@ -152,5 +179,12 @@ public class Player : MonoBehaviour
     public void UnlockBombs()
     {
         hasBomb = true;
+    }
+
+    public void GetNugget(int amount)
+    {
+        nuggetAmount++;
+        nuggetText.text = amount.ToString();
+        NotificationSystem.instance.SmallNotif(nuggetIcon, amount.ToString());
     }
 }

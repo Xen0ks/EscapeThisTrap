@@ -13,20 +13,13 @@ public class Level : MonoBehaviour
     }
     public void EndLevel()
     {
-        //GetComponent<PlayableDirector>().Play();
         NextLevel();
     }
 
     public void NextLevel()
     {
-        Transition.instance.PerformTransition();
-        Invoke("Tp", 0.5f);
-    }
-
-    void Tp()
-    {
         respawnPoint.position = nextLevelPoint.position;
-        player.transform.position = nextLevelPoint.position;
+        StartCoroutine(player.Teleport(nextLevelPoint.position));
     }
 
 
