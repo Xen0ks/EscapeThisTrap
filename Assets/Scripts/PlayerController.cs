@@ -63,12 +63,12 @@ public class PlayerController : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics2D.OverlapCircle(groundCheck.position, 0.08f, groundLayer);
+        return Physics2D.OverlapCircle(groundCheck.position, 0.35f, groundLayer);
     }
 
     public bool CanMove()
     {
-        return !player.dash && !player.isDead;
+        return !player.dash && !player.isDead && !GetComponent<PhysicsInteract>().kb;
     }
 
 
@@ -88,5 +88,10 @@ public class PlayerController : MonoBehaviour
     {
         rb.velocity = Vector3.zero;
         anim.SetBool("Walk", false);
+    }
+
+    private void OnDrawGizmos()
+    {
+        // Gizmos.DrawWireSphere(groundCheck.position, 0.35f);
     }
 }

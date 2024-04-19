@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Level
   - Bomb
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -14,8 +15,8 @@ TagManager:
   - Water
   - UI
   - MainCamera
-  - 
-  - 
+  - NoPlayerCollide
+  - Player
   - 
   - 
   - 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 960a2653dd39c9742a6ff58bd90b9e0e
+guid: 4a7b388051ea53b4aae4d68a54da115a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -123,13 +123,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mindman_0
+      name: ClearText_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 48
-        width: 16
-        height: 16
+        y: 150
+        width: 100
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -137,62 +137,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5b676bc8476659f44a9368c3760953da
-      internalID: 282304774
+      spriteID: 017eb89fd29db854cb9d0f2aa86b1377
+      internalID: -1822774101
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mindman_1
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 05d78f215fe440f41a1f044d708caf52
-      internalID: -1251371641
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_2
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 48
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: bdc268d01ed895f47aa9159af8194cd4
-      internalID: -415770686
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_3
+      name: ClearText_1
       rect:
         serializedVersion: 2
         x: 0
-        y: 32
-        width: 16
-        height: 16
+        y: 100
+        width: 100
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -200,62 +158,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0296dd8c07c473c418d07a4aed000dfa
-      internalID: 1523715971
+      spriteID: 2373e8d4bcdda714bac9347c6e72d9fb
+      internalID: 267183304
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mindman_4
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fc4c8e6297ce67f49b65c385b60611e7
-      internalID: 1949744100
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_5
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 32
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1e06be41e539f62468e0012e2867e5d3
-      internalID: 1676635871
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_6
+      name: ClearText_2
       rect:
         serializedVersion: 2
         x: 0
-        y: 16
-        width: 16
-        height: 16
+        y: 50
+        width: 100
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -263,62 +179,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8d02670211b101a4785dfb07bf86327c
-      internalID: 1866096721
+      spriteID: 1213a9721db370b4eaf981f3d5b1a85b
+      internalID: 144245415
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mindman_7
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 53924d8c0a27e8942aee540d0b9911dd
-      internalID: 210783811
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_8
-      rect:
-        serializedVersion: 2
-        x: 32
-        y: 16
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 22594027590afdc4e8009f0aa3a1d3e7
-      internalID: -297507789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_9
+      name: ClearText_3
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 16
+        width: 100
+        height: 50
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -326,29 +200,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31973901421ca62468856717592e04e2
-      internalID: -552280984
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mindman_10
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 0
-        width: 16
-        height: 16
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 4e611ce1968af01438ad011e779a7d43
-      internalID: 470437477
+      spriteID: 288f2737d38c9e14e9971fff297f32de
+      internalID: -575093453
       vertices: []
       indices: 
       edges: []
@@ -364,17 +217,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mindman_0: 282304774
-      Mindman_1: -1251371641
-      Mindman_10: 470437477
-      Mindman_2: -415770686
-      Mindman_3: 1523715971
-      Mindman_4: 1949744100
-      Mindman_5: 1676635871
-      Mindman_6: 1866096721
-      Mindman_7: 210783811
-      Mindman_8: -297507789
-      Mindman_9: -552280984
+      ClearText_0: -1822774101
+      ClearText_1: 267183304
+      ClearText_2: 144245415
+      ClearText_3: -575093453
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

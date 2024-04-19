@@ -55,7 +55,7 @@ public class CameraFollow : MonoBehaviour
     }
     public void DashCinematic()
     {
-        StartCoroutine(SetNewTarget(dashCinematicTarget, 4.5f));
+        StartCoroutine(SetNewTarget(dashCinematicTarget, 2f));
     }
 
     IEnumerator SetNewTarget(Transform target, float time)

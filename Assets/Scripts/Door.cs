@@ -5,14 +5,14 @@ public class Door : MonoBehaviour
     Transform tpTransform;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        tpTransform = collision.transform;
         if (collision.CompareTag("Player"))
         {
+            tpTransform = collision.transform;
             Transition.instance.PerformTransition();
             collision.GetComponent<PlayerController>().enabled = false;
+            if (TryGetComponent<Animator>(out Animator anim)) anim.SetTrigger("Open");
+            Invoke("Tp", 0.6f);
         }
-        GetComponent<Animator>().SetTrigger("Open");
-        Invoke("Tp", 0.6f);
     }
 
     void Tp()

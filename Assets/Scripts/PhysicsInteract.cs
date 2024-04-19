@@ -5,14 +5,22 @@ public class PhysicsInteract : MonoBehaviour
 {
     public UnityEvent onBombDamage;
 
+    [HideInInspector] public bool kb;
 
-    public void BombDamage(Vector2 bomb, float amount = 500f)
+
+    public void BombDamage(Vector3 bomb, float amount = 13f) 
     {
-        Vector3 bombScreenPosition = Camera.main.WorldToScreenPoint(bomb);
+        kb = true;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
 
-        Vector3 bombToMouseVector = (transform.position - bombScreenPosition).normalized;
-
-        GetComponent<Rigidbody2D>().velocity = bombToMouseVector * amount;
+        Vector2 moveDirection = transform.position - bomb;
+        rb.AddForce(moveDirection.normalized * amount, ForceMode2D.Impulse);
+        Invoke("StopKb", 0.2f);
         onBombDamage.Invoke();
+    }
+
+    void StopKb()
+    {
+        kb = false;
     }
 }

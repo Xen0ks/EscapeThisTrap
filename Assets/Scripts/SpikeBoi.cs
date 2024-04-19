@@ -37,7 +37,7 @@ public class SpikeBoi : MonoBehaviour
             rb.velocity = new Vector2(speed, 0f);
         }
         
-        if(Vector2.Distance(transform.position, player.transform.position) < triggerDistance)
+        if(Vector2.Distance(transform.position, player.transform.position) <= triggerDistance)
         {
             anim.SetBool("Walk", true);
             if (Vector2.Distance(transform.position, currentPoint.position) < 0.5f)
@@ -45,7 +45,7 @@ public class SpikeBoi : MonoBehaviour
                 currentPoint = patrolPoint[Random.Range(0, patrolPoint.Length)];
             }
         }
-        else
+        else if(anim.GetBool("Walk") == true)
         {
             anim.SetBool("Walk", false);
         }

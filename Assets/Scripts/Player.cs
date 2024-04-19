@@ -53,22 +53,34 @@ public class Player : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse0) && CanBomb())
         {
+            // Obtenir la position de la souris dans l'espace du monde
+            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            mousePosition.z = 0f; // Assurez-vous que la profondeur est correcte
+
+            // Créer une instance de l'objet à lancer
+            GameObject bomb = Instantiate(bombPrefab.gameObject, transform.position, Quaternion.identity);
+
+            // Calculer la direction du lancer
+            Vector3 launchDirection = mousePosition - transform.position;
+
+            // Appliquer une force à l'objet lancé dans la direction calculée
+            Rigidbody2D rb = bomb.GetComponent<Rigidbody2D>();
+
+            rb.velocity = launchDirection * 3;
             ableBomb = false;
-            Transform bomb = Instantiate(bombPrefab);
-            bomb.position = transform.position;
-            Vector3 bombScreenPosition = Camera.main.WorldToScreenPoint(bomb.position);
-            Vector3 mouseScreenPosition = Input.mousePosition;
-
-            Vector3 bombToMouseVector = (mouseScreenPosition - bombScreenPosition).normalized;
-
-            bomb.GetComponent<Rigidbody2D>().velocity = bombToMouseVector * dashPower;
-
-            Invoke("AbleBomb", 5f);
+            Invoke("AbleBomb", 1f);
         }
 
         if (controller.IsGrounded() && !dash)
         {
             dashCount = 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            UnlockBombs();
+            UnlockDash();
+            UpgradeDash(3);
         }
     }
 
@@ -152,7 +164,7 @@ public class Player : MonoBehaviour
 
     public bool CanBomb()
     {
-        return !GetComponent<Player>().isDead && hasBomb && !isDead && ableBomb;
+        return !GetComponent<Player>().isDead && hasBomb && !isDead && ableBomb && controller.enabled;
     }
 
     public void EndDash()
@@ -184,7 +196,7 @@ public class Player : MonoBehaviour
     public void GetNugget(int amount)
     {
         nuggetAmount++;
-        nuggetText.text = amount.ToString();
-        NotificationSystem.instance.SmallNotif(nuggetIcon, amount.ToString());
+        nuggetText.text = nuggetAmount.ToString();
+        NotificationSystem.instance.SmallNotif(nuggetIcon, nuggetAmount.ToString());
     }
 }
