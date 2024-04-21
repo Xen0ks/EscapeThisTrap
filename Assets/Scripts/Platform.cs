@@ -51,11 +51,6 @@ public class Platform : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if(collision.transform.tag == "Player") collision.transform.parent = null;
-        if (platformType == 2 && collision.transform.tag != "Platform")
-        {
-            Invoke("Fall", 0.8f);
-            Invoke("Instantiate", 3f);
-        }
     }
 
     void Fall()

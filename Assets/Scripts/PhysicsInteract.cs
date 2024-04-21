@@ -11,7 +11,7 @@ public class PhysicsInteract : MonoBehaviour
     public void BombDamage(Vector3 bomb, float amount = 13f) 
     {
         kb = true;
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        if (!TryGetComponent<Rigidbody2D>(out Rigidbody2D rb)) return;
 
         Vector2 moveDirection = transform.position - bomb;
         rb.AddForce(moveDirection.normalized * amount, ForceMode2D.Impulse);

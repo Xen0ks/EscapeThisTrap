@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Bomb
   m_EditorClassIdentifier: 
   name: Bomb
-  description: Throw it by selecting it and left clicking
+  description: Throw it every seconds by right clicking.
   sprite: {fileID: -98365080, guid: e86e98cec41250d4991d4e8c33953bca, type: 3}

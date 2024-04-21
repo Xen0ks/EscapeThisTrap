@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 
 public class Level : MonoBehaviour
 {
@@ -21,6 +22,4 @@ public class Level : MonoBehaviour
         respawnPoint.position = nextLevelPoint.position;
         StartCoroutine(player.Teleport(nextLevelPoint.position));
     }
-
-
 }

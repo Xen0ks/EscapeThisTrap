@@ -75,13 +75,6 @@ public class Player : MonoBehaviour
         {
             dashCount = 0;
         }
-
-        if (Input.GetKeyDown(KeyCode.K))
-        {
-            UnlockBombs();
-            UnlockDash();
-            UpgradeDash(3);
-        }
     }
 
     public void Die()
